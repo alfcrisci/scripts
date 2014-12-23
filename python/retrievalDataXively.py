@@ -60,7 +60,7 @@ f = open(id + '_' + start_date + '_' + end_datetime.strftime('%Y-%m-%dT%H:%M:%SZ
 start_datetime = datetime.strptime(start_date, "%Y-%m-%dT%H:%M:%SZ") # convert to datetime formar (caution with time zone, default gtm+0)
 
 for day in datespan(start_datetime, end_datetime, deltatime): # loop increasing deltatime to star_datetime until finish
-	while(True): # assurance correct retrieval data	
+	while True: # assurance correct retrieval data	
 		try: 
 			response = urllib2.urlopen('https://api.xively.com/v2/feeds/'+str(feed)+'.csv?key='+apikey_xively+'&start='+ day.strftime("%Y-%m-%dT%H:%M:%SZ")+'&interval='+str(interval)+'&duration='+duration) # get data
 			break
